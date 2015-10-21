@@ -33,7 +33,7 @@ run `vagrant plugin install vagrant-hostsupdater`
 cd /vagrant/radiator/
 bundle
 dashing start
-http://localhost:3030
+http://tst01.mybuys.loc:3030/
 ```
 
 
