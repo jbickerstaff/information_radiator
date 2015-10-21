@@ -2,6 +2,17 @@
 Agile radiator for siterex squad
 
 ##Initial Setup
+
+Install vagrant and virtualbox
+[Install vagrant](http://www.vagrantup.com/downloads.html)
+[Install virtualbox](https://www.virtualbox.org/wiki/Downloads)
+
+Install vagrant plugins
+```
+vagrant plugin install vagrant-vbguest
+vagrant plugin install vagrant-librarian-chef-nochef
+```
+
 Add to ~/.ssh/config
 ```
 # For vagrant virtual machines
