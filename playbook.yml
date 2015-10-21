@@ -8,5 +8,5 @@
 
   - apt: name=ruby-bundler state=present
   - apt: name=nodejs state=present
-  - gem: name=dashing state=present
+  - gem: name=dashing state=present user_install=no
 
