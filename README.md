@@ -1,7 +1,7 @@
 # thermonuclear-radiator
 Agile radiator for siterex squad
 
-##Initial Time Setup
+##Initial Setup
 Add to ~/.ssh/config
 ```
 # For vagrant virtual machines
