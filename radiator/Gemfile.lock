@@ -97,6 +97,7 @@ PLATFORMS
 
 DEPENDENCIES
   dashing
+  json
   twitter (>= 5.9.0)
 
 BUNDLED WITH
