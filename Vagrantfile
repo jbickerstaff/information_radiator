@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "tst01" do |tst01|
     tst01.vm.box = "ubuntu/trusty64"
     tst01.vm.network 'private_network', ip: '192.168.33.10'
-    tst01.vm.network 'forwarded_port', guest: 3000, host: 3000
+    tst01.vm.network 'forwarded_port', guest: 3030, host: 3030
     tst01.vm.hostname = "tst01.mybuys.loc"
   end
 end
