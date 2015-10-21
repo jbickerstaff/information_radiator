@@ -3,7 +3,6 @@ Agile radiator for siterex squad
 
 ##Initial Setup
 
-Install vagrant and virtualbox
 [Install vagrant](http://www.vagrantup.com/downloads.html)<br />
 [Install virtualbox](https://www.virtualbox.org/wiki/Downloads)<br />
 
