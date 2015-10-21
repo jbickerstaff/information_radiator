@@ -22,9 +22,6 @@ def authorize_key_for_root(config, *key_paths)
           'chown root:root /root/.ssh/authorized_keys && ' +
           'chmod 600 /root/.ssh/authorized_keys && ' +
           'rm -f /home/vagrant/root_pubkey && ' +
-          'sed -i "s/PermitRootLogin no/PermitRootLogin yes/g" /etc/ssh/sshd_config  && ' +
-          'sed -i "s/DenyUsers root//g" /etc/ssh/sshd_config  && ' +
-          '/etc/init.d/ssh restart && ' +
           'echo "Done!"'
       break
     end

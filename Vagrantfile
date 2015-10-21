@@ -12,5 +12,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     tst01.vm.network 'private_network', ip: '192.168.33.10'
     tst01.vm.network 'forwarded_port', guest: 3030, host: 3030
     tst01.vm.hostname = "tst01.mybuys.loc"
+    tst01.vm.provision :ansible do |ansible|
+      ansible.playbook = "playbook.yml"
+    end
   end
 end

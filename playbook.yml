@@ -1,0 +1,12 @@
+---
+- name: install deps
+  hosts: all
+
+  sudo: yes
+
+  tasks:
+
+  - apt: name=ruby-bundler state=present
+  - apt: name=nodejs state=present
+  - gem: name=dashing state=present
+
