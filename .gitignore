@@ -9,6 +9,7 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+/radiator/assets/credentials
 
 ## Specific to RubyMotion:
 .dat*
