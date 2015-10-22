@@ -20,8 +20,8 @@ JIRA_CONFIG = {
   :context_path => ''
 }
 ISSUE_LISTS = [
-  # {:widget_id => 'jira_open_issues', :status_id => 1},   # Lists all open issues
-  {:widget_id => 'jira_in_prog_issues', :status_id => 3} # Lists all issues in progress
+  {:widget_id => 'jira_in_prog_issues', :status_id => 3}, # Lists all issues in progress
+  {:widget_id => 'jira_done_issues', :status_id => 6}   # Lists all done issues
 ]
 
 # Constants (do not change)
@@ -32,7 +32,7 @@ JIRA_STATUSES = {
   3 => "In Progress",
   4 => "Reopened",
   5 => "Resolved",
-  6 => "Closed",
+  6 => "Done",
   7 => "Ready for QA"
 }
 
@@ -86,11 +86,10 @@ end
 ISSUE_LISTS.each do |list_config|
   SCHEDULER.every '5m', :first_in => 0 do |job|
     issues = []
-    status_id = list_config[:status_id]
+    status_name = JIRA_STATUSES[list_config[:status_id]]
     client = JIRA::Client.new(JIRA_CONFIG)
-    # AND STATUS = \"#{status_id}\" AND SPRINT in openSprints()
     begin
-      client.Issue.jql("PROJECT = \"#{PROJECT}\"").each { |issue|
+      client.Issue.jql("PROJECT = \"#{PROJECT}\" AND STATUS = \"#{status_name}\" AND SPRINT in openSprints()").each { |issue|
           assigneeAvatarUrl = issue.assignee.nil? ? URI.join(JIRA_URI.to_s, "secure/useravatar?avatarId=#{JIRA_ANON_AVATAR_ID}") : issue.assignee.avatarUrls["48x48"]
           assigneeName = issue.assignee.nil? ? "unassigned" : issue.assignee.name
 
@@ -105,10 +104,8 @@ ISSUE_LISTS.each do |list_config|
       puts "An error of type #{ex.class} happened, message is #{ex.message}"
     end
 
-
-    issue_type = JIRA_STATUSES[status_id]
     active_sprint = get_active_sprint_for_view(RAPID_VIEW_ID)
     sprint_name = active_sprint['name']
-    send_event(list_config[:widget_id], { header: "#{sprint_name} Issues", issue_type: issue_type, issues: issues})
+    send_event(list_config[:widget_id], { header: "#{sprint_name} Issues", issue_type: status_name, issues: issues})
   end
 end
