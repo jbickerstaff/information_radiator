@@ -1,7 +1,7 @@
 require 'jira'
 
-jira_credentials = JSON.parse( IO.read("assets/credentials/shadow-jira-credentials.json"))
-
+jira_credentials = JSON.parse( IO.read("assets/credentials/jira-credentials.json"))
+PROJECT = "Web Rec UI"
 JIRA_CONFIG = {
     :username     => jira_credentials["username"],
     :password     => jira_credentials["password"],
@@ -12,8 +12,8 @@ JIRA_CONFIG = {
 
 SCHEDULER.every '5m', :first_in => 0 do |job|
   client = JIRA::Client.new(JIRA_CONFIG)
-  closed_points = client.Issue.jql("sprint in openSprints()  and project = \"Web Rec UI\" and status = \"done\"").map{ |issue| issue.fields['customfield_10005'] }.reduce(:+) || 0
-  total_points = client.Issue.jql("sprint in openSprints()  and project = \"Web Rec UI\"").map{ |issue| issue.fields['customfield_10005'] }.reduce(:+) || 0
+  closed_points = client.Issue.jql("sprint in openSprints()  and project = \"#{PROJECT}\" and status = \"closed\"").map{ |issue| issue.fields['customfield_10004'] }.reduce(:+) || 0
+  total_points = client.Issue.jql("sprint in openSprints()  and project = \"#{PROJECT}\"").map{ |issue| issue.fields['customfield_10004'] }.reduce(:+) || 0
   if total_points == 0
     percentage = 0
     moreinfo = "No sprint currently in progress"

@@ -15,6 +15,7 @@ class Dashing.JenkinsBuild extends Dashing.Widget
     super
     @observe 'value', (value) ->
       $(@node).find(".jenkins-build").val(value).trigger('change')
+    @websocketurl = "ws://dashlights.corp.mybuys.com:19444"
 
   ready: ->
     meter = $(@node).find(".jenkins-build")
@@ -26,6 +27,24 @@ class Dashing.JenkinsBuild extends Dashing.Widget
   onData: (data) ->
     if data.currentResult isnt data.lastResult
       $(@node).fadeOut().css('background-color', @get('bgColor')).fadeIn()
-      audio = new Audio('/audio/dumb-stupid.mp3');
-      audio.play();
-
+      if @get('currentResult') == "SUCCESS"
+        audio = new Audio('/audio/mchocola.mp3')
+        message = '{ "color": [0,255,255], "command": "color", "priority": 100 }'
+        socket = new WebSocket(@websocketurl)
+        socket.onopen = (evt) -> socket.send(message)
+        audio.play()
+      else if @get('currentResult') == "FAILURE"
+        audio = new Audio('/audio/Price-is-right-losing-horn.mp3');
+        message = '{"command":"effect","effect":{"name":"Snake"},"priority":100}'
+        socket = new WebSocket(@websocketurl)
+        socket.onopen = (evt) -> socket.send(message)
+        audio.play();
+      else if @get('currentResult') == "PREBUILD"
+        message = '{"command":"effect","effect":{"name":"Rainbow swirl fast"},"priority":100}'
+        socket = new WebSocket(@websocketurl)
+        socket.onopen = (evt) -> socket.send(message)
+      else
+        message = '{"command":"effect","effect":{"name":"Rainbow swirl fast"},"priority":100}'
+        websocketurl = "ws://169.254.210.52:19444"
+        socket = new WebSocket(@websocketurl)
+        socket.onopen = (evt) -> socket.send(message)
