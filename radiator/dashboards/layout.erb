@@ -16,6 +16,18 @@
   <link rel="icon" href="/assets/favicon.ico">
 
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <script type="text/javascript">
+    var foosRoomOccupied;
+
+    function foosRoomToggle()
+    {
+      foosRoomOccupied = !foosRoomOccupied;
+      $.post("http://tst01.mybuys.loc:3030/widgets/foosroom",
+              '{ "auth_token": "TEST", "isOccupied":"'+foosRoomOccupied+'"}');
+
+
+    }
+  </script>
 
 </head>
   <body>
