@@ -22,7 +22,7 @@
     function foosRoomToggle()
     {
       foosRoomOccupied = !foosRoomOccupied;
-      $.post("http://tst01.mybuys.loc:3030/widgets/foosroom",
+      $.post("http://" + window.location.hostname +":3030/widgets/foosroom",
               '{ "auth_token": "TEST", "isOccupied":"'+foosRoomOccupied+'"}');
 
 
