@@ -23,6 +23,7 @@ build/
 
 ## Environment normalisation:
 /.bundle/
+/radiator/assets/credentials
 /vendor/bundle
 /lib/bundler/man/
 
