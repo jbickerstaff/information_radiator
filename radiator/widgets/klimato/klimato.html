@@ -1,4 +1,34 @@
-<h1 data-bind="temperature"></h1>
-<h2 data-bind-class="code | prepend 'klimato-'"></h2>
 <h3 data-bind="location"></h3>
-<p class="updated-at" data-bind="updatedAtMessage"></p>
+
+<div class="today">
+    <h1 data-bind="current_temperature"></h1>
+    <h2 data-bind-class="current_code | prepend 'klimato-'"></h2>
+</div>
+
+<div class="panel">
+    <h3>TODAY</h3>
+    <h3>
+        <div class="panel">High</div>
+        <p class="panel" data-bind="today_high"></p>
+    </h3>
+    <h3>
+        <div class="panel">Low</div>
+        <p class="panel" data-bind="today_low"></p>
+    </h3>
+    <p class="description" data-bind="today_text"></p>
+</div>
+
+<div class="panel">
+    <h3>TOMORROW</h3>
+    <h3>
+        <div class="panel">High</div>
+        <p class="panel" data-bind="tomorrow_high"></p>
+    </h3>
+    <h3>
+        <div class="panel">Low</div>
+        <p class="panel" data-bind="tomorrow_low"></p>
+    </h3>
+    <p class="description" data-bind="tomorrow_text"></p>
+</div>
+
+<div class="updated-at" data-bind="updatedAtMessage"></div>

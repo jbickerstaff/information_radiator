@@ -1,12 +1,12 @@
 class Dashing.Klimato extends Dashing.Widget
 
   onData: (data) ->
-    @setBackgroundClassBy parseInt(data.temperature, 10), data.format
+    @setBackgroundClassBy parseInt(data.current_temperature, 10), data.format
 
-  setBackgroundClassBy: (temperature, format) ->
+  setBackgroundClassBy: (current_temperature, format) ->
     @removeBackgroundClass()
 
-    colorLevel = @findColorLevelBy temperature, format
+    colorLevel = @findColorLevelBy current_temperature, format
     $(@node).addClass "klimato-temperature-#{colorLevel}"
 
   removeBackgroundClass: ->
@@ -16,16 +16,16 @@ class Dashing.Klimato extends Dashing.Widget
       match = /klimato-temperature-(.*)/.exec className
       $(@node).removeClass match[0] if match
 
-  findColorLevelBy: (temperature, format) ->
+  findColorLevelBy: (current_temperature, format) ->
     ranges = @temperatureRangesFor format
     switch
-      when temperature <= ranges[0] then 0
-      when temperature in ranges[1] then 1
-      when temperature in ranges[2] then 2
-      when temperature in ranges[3] then 3
-      when temperature in ranges[4] then 4
-      when temperature in ranges[5] then 5
-      when temperature >  ranges[6] then 6
+      when current_temperature <= ranges[0] then 0
+      when current_temperature in ranges[1] then 1
+      when current_temperature in ranges[2] then 2
+      when current_temperature in ranges[3] then 3
+      when current_temperature in ranges[4] then 4
+      when current_temperature in ranges[5] then 5
+      when current_temperature >  ranges[6] then 6
 
   temperatureRangesFor: (format) ->
     ranges =

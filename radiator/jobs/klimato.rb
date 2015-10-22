@@ -4,7 +4,13 @@ require "json"
 # WOEID for location:
 # http://woeid.rosselliot.co.nz
 woeid  = 2354842
-query  = URI::encode "select item from weather.forecast WHERE woeid=#{woeid}&format=json"
+
+# Units for temperature:
+# f: Fahrenheit
+# c: Celsius
+format = "f"
+
+query  = URI::encode "select * from weather.forecast WHERE woeid=#{woeid} and u='#{format}'&format=json"
 
 SCHEDULER.every "15m", :first_in => 0 do |job|
   http     = Net::HTTP.new "query.yahooapis.com"
@@ -13,11 +19,13 @@ SCHEDULER.every "15m", :first_in => 0 do |job|
   results  = response["query"]["results"]
 
   if results
+    location  = results["channel"]["location"]
     current_condition = results["channel"]["item"]["condition"]
-    current_location  = results["channel"]["location"]
     today_condition = results["channel"]["item"]["forecast"][0]
     tomorrow_condition = results["channel"]["item"]["forecast"][1]
-
-    send_event "klimato", { location: current_location["city"], temperature: tomorrow_condition["high"], code: tomorrow_condition["code"], format: "f"}
+    send_event "klimato", { location: location["city"], current_temperature: current_condition["temp"], current_code: current_condition["code"],
+        today_high: today_condition["high"], today_low: today_condition["low"], today_text: today_condition["text"],
+        tomorrow_high: tomorrow_condition["high"], tomorrow_low: tomorrow_condition["low"], tomorrow_text: tomorrow_condition["text"],
+        format: format }
   end
 end
