@@ -26,6 +26,15 @@ class Dashing.JenkinsBuild extends Dashing.Widget
   onData: (data) ->
     if data.currentResult isnt data.lastResult
       $(@node).fadeOut().css('background-color', @get('bgColor')).fadeIn()
-      audio = new Audio('/audio/dumb-stupid.mp3');
-      audio.play();
-
+      if @get('currentResult') == "SUCCESS"
+        audio = new Audio('/audio/mchocola.mp3');
+        audio.play();
+      else if @get('currentResult') == "FAILURE"
+        audio = new Audio('/audio/Price-is-right-losing-horn.mp3');
+        audio.play();
+      else if @get('currentResult') == "PREBUILD"
+        audio = new Audio('');
+        audio.play();
+      else
+        audio = new Audio('');
+        audio.play();
