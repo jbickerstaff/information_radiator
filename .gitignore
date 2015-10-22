@@ -9,6 +9,7 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+/radiator/assets/credentials/*
 
 ## Specific to RubyMotion:
 .dat*
@@ -23,7 +24,6 @@ build/
 
 ## Environment normalisation:
 /.bundle/
-/radiator/assets/credentials/*.json
 /vendor/bundle
 /lib/bundler/man/
 
