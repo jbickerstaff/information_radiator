@@ -23,6 +23,14 @@ SCHEDULER.every "15m", :first_in => 0 do |job|
     current_condition = results["channel"]["item"]["condition"]
     today_condition = results["channel"]["item"]["forecast"][0]
     tomorrow_condition = results["channel"]["item"]["forecast"][1]
+
+    if today_condition["text"]
+      today_condition["text"] = today_condition["text"].split("/").first + " " + today_condition["text"].split("/").last
+    end
+    if tomorrow_condition["text"].include? "/"
+      tomorrow_condition["text"] = tomorrow_condition["text"].split("/").first + " " + tomorrow_condition["text"].split("/").last
+    end
+
     send_event "klimato", { location: location["city"], current_temperature: current_condition["temp"], current_code: current_condition["code"],
         today_high: today_condition["high"], today_low: today_condition["low"], today_text: today_condition["text"],
         tomorrow_high: tomorrow_condition["high"], tomorrow_low: tomorrow_condition["low"], tomorrow_text: tomorrow_condition["text"],
