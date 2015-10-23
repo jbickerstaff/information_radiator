@@ -42,14 +42,16 @@ SCHEDULER.every '10m', :first_in => 0.1 do |job|
   service = client.discovered_api('calendar','v3')
 
   # Start and end dates
-  now = DateTime.now
+  now =   DateTime.now.beginning_of_day
+  later =   DateTime.now.end_of_day
 
   result = client.execute(:api_method => service.events.list,
                           :parameters => {'calendarId' => calendarID,
                                           'timeMin' => now.rfc3339,
+                                          'timeMax' => later.rfc3339,
                                           'orderBy' => 'startTime',
                                           'singleEvents' => 'true',
-                                          'maxResults' => 10})  # How many calendar items to get
+                                          'maxResults' => 6})  # How many calendar items to get
 
   send_event('google_calendar', { events: result.data })
 
