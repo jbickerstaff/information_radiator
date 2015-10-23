@@ -7,11 +7,19 @@ class Dashing.FoosRoom extends Dashing.Widget
    "#E33638"
   else
    "#999"
+
  @accessor 'text', ->
   if @get('isOccupied') == "true"
    "Occupied"
   else if @get('isOccupied') == "false"
    "Open"
+
+   @accessor 'display', ->
+  if @get('isOccupied') == "true"
+   "none"
+  else if @get('isOccupied') == "false"
+   "block"
+
 
  ready: ->
    # This is fired when the widget is done being rendered
