@@ -24,7 +24,7 @@ SCHEDULER.every "15m", :first_in => 0 do |job|
     today_condition = results["channel"]["item"]["forecast"][0]
     tomorrow_condition = results["channel"]["item"]["forecast"][1]
 
-    if today_condition["text"]
+    if today_condition["text"].include? "/"
       today_condition["text"] = today_condition["text"].split("/").first + " " + today_condition["text"].split("/").last
     end
     if tomorrow_condition["text"].include? "/"
