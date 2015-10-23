@@ -12,6 +12,18 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
 .widget-lunch-god {
 
   background-color: $background-color;
+  vertical-align: top !important;
+
+  h1 {
+    font-size: larger;
+    color: $title-color;
+    margin-bottom: 24px;
+  }
+
+  h3{
+    padding-bottom: 30px;
+    text-transform: uppercase;
+  }
 
   .imgdiv
   {
