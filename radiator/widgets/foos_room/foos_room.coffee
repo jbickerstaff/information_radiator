@@ -2,9 +2,9 @@ class Dashing.FoosRoom extends Dashing.Widget
 
  @accessor 'color', ->
   if @get('isOccupied') == "false"
-   "#96bf48"
+   "#49E20E"
   else if @get('isOccupied') == "true"
-   "#D26771"
+   "#E33638"
   else
    "#999"
  @accessor 'text', ->
