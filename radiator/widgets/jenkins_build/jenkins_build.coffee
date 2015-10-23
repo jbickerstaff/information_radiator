@@ -3,9 +3,9 @@ class Dashing.JenkinsBuild extends Dashing.Widget
   @accessor 'value', Dashing.AnimatedValue
   @accessor 'bgColor', ->
     if @get('currentResult') == "SUCCESS"
-      "#96bf48"
+      "#49E20E"
     else if @get('currentResult') == "FAILURE"
-      "#D26771"
+      "#E33638"
     else if @get('currentResult') == "PREBUILD"
       "#ff9618"
     else
