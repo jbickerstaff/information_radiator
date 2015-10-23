@@ -14,13 +14,6 @@ class Dashing.FoosRoom extends Dashing.Widget
   else if @get('isOccupied') == "false"
    "Open"
 
-   @accessor 'display', ->
-  if @get('isOccupied') == "true"
-   "none"
-  else if @get('isOccupied') == "false"
-   "block"
-
-
  ready: ->
    # This is fired when the widget is done being rendered
    $(@node).css('background-color', @get('color'))
