@@ -28,7 +28,7 @@ class Dashing.JenkinsBuild extends Dashing.Widget
     if data.currentResult isnt data.lastResult
       $(@node).fadeOut().css('background-color', @get('bgColor')).fadeIn()
       if @get('currentResult') == "SUCCESS"
-        audio = new Audio('/audio/mchocola.mp3')
+        audio = new Audio('/audio/success.mp3')
         message = '{ "color": [0,255,255], "command": "color", "priority": 100 }'
         socket = new WebSocket(@websocketurl)
         socket.onopen = (evt) -> socket.send(message)
