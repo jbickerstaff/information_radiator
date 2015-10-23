@@ -97,6 +97,6 @@ ISSUE_LISTS.each do |list_config|
 
 
 
-    send_event(list_config[:widget_id], { header: "", issue_type: status_name, issues: issues})
+    send_event(list_config[:widget_id], { header: "WRU JIRA", issue_type: status_name, issues: issues})
   end
 end
