@@ -44,7 +44,8 @@ class Dashing.JenkinsBuild extends Dashing.Widget
         socket = new WebSocket(@websocketurl)
         socket.onopen = (evt) -> socket.send(message)
       else
+        audio = new Audio('/audio/butts.mp3')
         message = '{"command":"effect","effect":{"name":"Rainbow swirl fast"},"priority":100}'
-        websocketurl = "ws://169.254.210.52:19444"
         socket = new WebSocket(@websocketurl)
         socket.onopen = (evt) -> socket.send(message)
+        audio.play();
