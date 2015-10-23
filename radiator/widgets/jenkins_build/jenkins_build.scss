@@ -14,6 +14,14 @@ $meter-background:  rgba(20, 20, 20, 1);
 .widget-jenkins-build {
   background-color: $background-color;
 
+  h2{
+    margin-bottom: 40px;
+  }
+
+  h3{
+    font-size: medium;
+  }
+
   input.jenkins-build {
     background-color: $meter-background;
     color: #fff;
@@ -21,6 +29,7 @@ $meter-background:  rgba(20, 20, 20, 1);
 
   .title {
     color: $title-color;
+    font-size: 30px;
   }
 
   .more-info {

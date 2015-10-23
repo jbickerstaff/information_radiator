@@ -15,6 +15,14 @@ $meter-background:  darken($background-color, 7%);
 
   background-color: $background-color;
 
+  h1{
+    margin-bottom: 40px;
+  }
+  
+  h3{
+    font-size: medium;
+  }
+
   input.meter {
     background-color: $meter-background;
     color: #fff;
