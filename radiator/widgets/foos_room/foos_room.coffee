@@ -8,16 +8,29 @@ class Dashing.FoosRoom extends Dashing.Widget
   else
    "#999"
 
+ @accessor 'display', ->
+  if @get('isOccupied') == "true"
+   "block"
+  else if @get('isOccupied') == "false"
+   "none"
+  else
+   "none"
+
  @accessor 'text', ->
   if @get('isOccupied') == "true"
    "Occupied"
   else if @get('isOccupied') == "false"
    "Open"
+  else
+   "Open"
 
  ready: ->
    # This is fired when the widget is done being rendered
    $(@node).css('background-color', @get('color'))
+   $(@node).find('img').css('display', @get('display'))
 
  onData: (data) ->
   $(@node).css('background-color', @get('color'))
+  $(@node).find('img').css('display', @get('display'))
+
 
