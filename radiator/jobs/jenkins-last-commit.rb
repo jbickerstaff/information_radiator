@@ -22,7 +22,7 @@ JENKINS_AUTH = {
 #Hash of all Jenkins jobs to be monitored for SCM changes, mapped to their event IDs
 #Add your Jenkins jobs & their associated unique event IDs here
 $jenkins_jobs_to_be_monitored = {
-    'QuickStart-Sprint' => 'jenkins-last-commit-1'
+    'QuickStart-Sprint' => 'jenkins-last-commit-QS','SiteRex-Sprint-Git' => 'jenkins-last-commit-SiteRex'
 }
 
 #Trim thresholds (widget display)
