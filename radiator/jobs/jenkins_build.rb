@@ -1,6 +1,7 @@
 require 'net/http'
 require 'json'
 require 'time'
+require 'logger'
 
 JENKINS_URI = URI.parse("http://buildmaster.qa.mybuys.com/")
 
@@ -10,9 +11,18 @@ JENKINS_AUTH = {
 
 }
 
+
+logger = Logger.new('/tmp/log.log', 'daily', 10)
+
 # the key of this mapping must be a unique identifier for your job, the according value must be the name that is specified in jenkins
 job_mapping = {
-  'SiteRex' => { :job => 'SiteRex-Master-Git'}
+  'SiteRex' => { :job => 'SiteRex-Master-Git'},
+  'SiteRexSprint' => { :job => 'SiteRex-Sprint-Git'},
+  'SiteRexIntegrationMaster' => { :job => 'SiteRex-Integration-Master-Git'},
+  'SiteRexIntegrationSprint' => { :job => 'SiteRex-Integration-Sprint-Git'},
+  'SalesforceConnect' => { :job => 'Salesforce-Connect-Sprint-Git'},
+  'QuickStartMaster' => { :job => 'QuickStart-Master-Git'},
+  'QuickStartSprint' => { :job => 'QuickStart-Sprint'},
 }
 
 def get_number_of_failing_tests(job_name)
@@ -35,12 +45,15 @@ def get_json_for_job(job_name, build = 'lastBuild')
   job_name = URI.encode(job_name)
   http = Net::HTTP.new(JENKINS_URI.host, JENKINS_URI.port)
   request = Net::HTTP::Get.new("/#{JENKINS_PATH}/job/#{job_name}/#{build}/api/json")
+
   if JENKINS_AUTH['name']
     request.basic_auth(JENKINS_AUTH['name'], JENKINS_AUTH['password'])
   end
   response = http.request(request)
   JSON.parse(response.body)
 end
+
+
 
 job_mapping.each do |title, jenkins_project|
   current_status = nil
@@ -57,10 +70,12 @@ job_mapping.each do |title, jenkins_project|
       percent = get_completion_percentage(jenkins_project[:pre_job])
     end
 
+    logger.info(title)
+
     send_event(title, {
-      currentResult: current_status,
+        currentResult: current_status,
       lastResult: last_status,
-      timestamp: build_info["timestamp"],
+      timestamp: Time.at(build_info["timestamp"]).strftime("%B %e at %I:%M %p"),
       value: percent
     })
   end
