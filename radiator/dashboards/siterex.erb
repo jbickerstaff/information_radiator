@@ -3,55 +3,40 @@
   <ul>
     <!--Row 1-->
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-        <div data-view="Logo" data-title="Site Rex" data-image="/logo.png"></div>
+        <div data-view="Logo" data-title="Site Rex" data-image="/rex.gif"></div>
     </li>
-    <!--<li data-row="1" data-col="2" data-sizex="1" data-sizey="1">-->
-      <!--<div data-view="Jenkinslastcommit" data-title="Current Sprint/Days left in Sprint gray-blue"></div>-->
-    <!--</li>-->
-    <li data-row="1" data-col="2" data-sizex="2" data-sizey="1">
-      <div data-id="jenkins-last-commit-SiteRex" data-view="Jenkinslastcommit" data-unordered="true" data-title="Last Commit on Master Branch" ></div>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="SiteRexIntegrationSprint" data-view="JenkinsBuild" data-title="Rex Integration" data-description="Sprint Branch" data-min="0" data-max="100"></div>
+    </li>
+    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="SiteRexSprint" data-view="JenkinsBuild" data-title="Site Rex" data-description="Sprint Branch" data-min="0" data-max="100"></div>
     </li>
     <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
-      <div data-id="SiteRex" data-view="JenkinsBuild" data-title="MASTER" data-description="Site Recommendations" data-min="0" data-max="100"></div>
+      <div data-id="SiteRex" data-view="JenkinsBuild" data-title="Site Rex" data-description="Master Branch" data-min="0" data-max="100"></div>
     </li>
     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
-        <div data-id="lunchgod" data-view="LunchGod" data-title="Lunch God Selection" data-text="Grizz Peak" data-image="/lunchgod.png"></div>
+      <div data-id="SiteRexIntegrationMaster" data-view="JenkinsBuild" data-title="Rex Integration" data-description="Master Branch" data-min="0" data-max="100"></div>
     </li>
     <li data-row="1" data-col="6" data-sizex="1" data-sizey="1">
-        <div data-view="TwelveHourClock"></div>
+      <div data-id="SalesforceConnect" data-view="JenkinsBuild" data-title="Sales Force" data-description="Master Branch" data-min="0" data-max="100"></div>
     </li>
+
 
     <!--Row 2-->
-    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
-        <div data-id="klimato" data-view="Klimato"></div>
-    </li>
-    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="jira_in_prog_issues" data-view="JiraListCurrentSprintIssues"></div>
-    </li>
-    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
-      <div data-id="jira_qa_issues" data-view="JiraListCurrentSprintIssues"></div>
-    </li>
-    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
-      <div data-view="SprintProgress" data-id="sprintProgress"></div>
-    </li>
-    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
-        <!--yellow-->
-        <div data-id="google_calendar" data-view="GoogleCalendar"></div>
-    </li>
-    <li data-row="2" data-col="6" data-sizex="1" data-sizey="2">
-      <div data-view="DailyXKCD" data-id="xkcd-of-the-day"></div>
+    <li data-row="2" data-col="1" data-sizex="3" data-sizey="1">
+      <div data-id="jenkins-last-commit-SiteRex" data-view="Jenkinslastcommit" data-unordered="true" data-title="Last Commit on Master Branch" ></div>
     </li>
 
-    <!--Row 3-->
-    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" onmousedown="foosRoomToggle()" ontouchstart="foosRoomToggle()">
-        <div data-id="foosroom" data-view="FoosRoom" data-title="Foos Room Status" data-text="Occupied" data-image="/foos_room.gif"></div>
+    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="jira_in_prog_issues" data-view="JiraListCurrentSprintIssues"></div>
     </li>
-    <li data-row="3" data-col="2" data-sizex="2" data-sizey="1">
-        <div data-id="trafficmap" data-view="Trafficmap" data-title="Ann Arbor Traffic" data-lat="42.28" data-long="-83.74" data-zoom="13" ></div>
+    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="jira_qa_issues" data-view="JiraListCurrentSprintIssues"></div>
     </li>
-    <li data-row="3" data-col="3" data-sizex="2" data-sizey="1">
-        <iframe id="ytplayer" width="100%" height="100%" src="https://www.youtube.com/embed/MUOgaI9uGlU?&enablejsapi=1&controls=0&autoplay=1" frameborder="0"></iframe>
+    <li data-row="2" data-col="6" data-sizex="1" data-sizey="1">
+      <div data-view="SprintProgress" data-id="sprintProgress"></div>
     </li>
+
 
   </ul>
 </div>
