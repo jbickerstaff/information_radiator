@@ -1,4 +1,6 @@
+require "sinatra/cyclist"
 require 'dashing'
+
 
 configure do
   set :auth_token, 'TEST'
@@ -14,5 +16,7 @@ end
 map Sinatra::Application.assets_prefix do
   run Sinatra::Application.sprockets
 end
+
+set :routes_to_cycle_through, [:home, :onboard, :siterex]
 
 run Sinatra::Application
