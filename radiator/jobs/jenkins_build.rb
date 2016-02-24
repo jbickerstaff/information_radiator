@@ -16,10 +16,14 @@ logger = Logger.new('/tmp/log.log', 'daily', 10)
 
 # the key of this mapping must be a unique identifier for your job, the according value must be the name that is specified in jenkins
 job_mapping = {
-  'SiteRex' => { :job => 'SiteRex-Master-Git'},
-  'SiteRexSprint' => { :job => 'SiteRex-Sprint-Git'},
-  'SiteRexIntegrationMaster' => { :job => 'SiteRex-Integration-Master-Git'},
-  'SiteRexIntegrationSprint' => { :job => 'SiteRex-Integration-Sprint-Git'},
+  'SiteRex-SelfServe-Master' => { :job => 'SiteRex-SelfServe-Master'},
+  'SiteRex-SelfServe-Sprint' => { :job => 'SiteRex-SelfServe-Sprint'},
+  'SiteRex-Integration-Master' => { :job => 'SiteRex-Integration-Master'},
+  'SiteRex-Integration-Sprint' => { :job => 'SiteRex-Integration-Sprint'},
+  'SiteRex-Reporting-Master' => { :job => 'SiteRex-Reporting-Master' },
+  'SiteRex-Reporting-Sprint' => { :job => 'SiteRex-Reporting-Sprint' },
+  'SiteRex-Tools-Master' => { :job => 'SiteRex-Tools-Master' },
+  'SiteRex-Tools-Sprint' => { :job => 'SiteRex-Tools-Sprint' },
   'SalesforceConnect' => { :job => 'Salesforce-Connect-Sprint-Git'},
   'QuickStartMaster' => { :job => 'QuickStart-Master-Git'},
   'QuickStartSprint' => { :job => 'QuickStart-Sprint'},

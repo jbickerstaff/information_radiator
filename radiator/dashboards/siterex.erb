@@ -1,39 +1,57 @@
 <% content_for :title do %>Site Rex Dashboard<% end %>
 <div class="gridster">
   <ul>
-    <!--Row 1-->
+    <!-- TITLE (row 1, column 1) -->
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
         <div data-view="Logo" data-title="Site Rex" data-image="/rex.gif"></div>
     </li>
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="SiteRexIntegrationSprint" data-view="JenkinsBuild" data-title="Rex Integration" data-description="Sprint Branch" data-min="0" data-max="100"></div>
-    </li>
+
+	<!-- BUILDS (rows 1 and 2) -->
+	<!-- Self-Serve -->
     <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
-      <div data-id="SiteRexSprint" data-view="JenkinsBuild" data-title="Site Rex" data-description="Sprint Branch" data-min="0" data-max="100"></div>
+      <div data-id="SiteRex-SelfServe-Master" data-view="JenkinsBuild" data-title="Self-Serve - Master" data-description="SiteRex - Self-Serve - Master" data-min="0" data-max="100"></div>
     </li>
+	<li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="SiteRex-SelfServe-Sprint" data-view="JenkinsBuild" data-title="Self-Serve - Sprint" data-description="SiteRex - Self-Serve - Sprint" data-min="0" data-max="100"></div>
+    </li>
+
+	<!-- Integration -->
     <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
-      <div data-id="SiteRex" data-view="JenkinsBuild" data-title="Site Rex" data-description="Master Branch" data-min="0" data-max="100"></div>
+      <div data-id="SiteRex-Integration-Master" data-view="JenkinsBuild" data-title="Integration - Master" data-description="SiteRex - Integration - Master" data-min="0" data-max="100"></div>
     </li>
+	<li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="SiteRex-Integration-Sprint" data-view="JenkinsBuild" data-title="Integration - Sprint" data-description="SiteRex - Integration - Sprint" data-min="0" data-max="100"></div>
+    </li>
+
+	<!-- Reporting -->
     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
-      <div data-id="SiteRexIntegrationMaster" data-view="JenkinsBuild" data-title="Rex Integration" data-description="Master Branch" data-min="0" data-max="100"></div>
+      <div data-id="SiteRex-Reporting-Master" data-view="JenkinsBuild" data-title="Reporting - Master" data-description="SiteRex - Reporting - Master" data-min="0" data-max="100"></div>
     </li>
+	<li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="SiteRex-Reporting-Sprint" data-view="JenkinsBuild" data-title="Reporting - Sprint" data-description="SiteRex - Reporting - Sprint" data-min="0" data-max="100"></div>
+    </li>
+
+	<!-- Tools -->
     <li data-row="1" data-col="6" data-sizex="1" data-sizey="1">
-      <div data-id="SalesforceConnect" data-view="JenkinsBuild" data-title="Sales Force" data-description="Master Branch" data-min="0" data-max="100"></div>
+      <div data-id="SiteRex-Tools-Master" data-view="JenkinsBuild" data-title="Tools - Master" data-description="SiteRex - Tools - Master" data-min="0" data-max="100"></div>
+    </li>
+	<li data-row="2" data-col="6" data-sizex="1" data-sizey="1">
+      <div data-id="SiteRex-Tools-Sprint" data-view="JenkinsBuild" data-title="Tools - Sprint" data-description="SiteRex - Tools - Sprint" data-min="0" data-max="100"></div>
     </li>
 
 
-    <!--Row 2-->
-    <li data-row="2" data-col="1" data-sizex="3" data-sizey="1">
+	<!-- BLING (row 3) -->
+    <li data-row="3" data-col="1" data-sizex="3" data-sizey="1">
       <div data-id="jenkins-last-commit-SiteRex" data-view="Jenkinslastcommit" data-unordered="true" data-title="Last Commit on Master Branch" ></div>
     </li>
 
-    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+    <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
       <div data-id="jira_in_prog_issues" data-view="JiraListCurrentSprintIssues"></div>
     </li>
-    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+    <li data-row="3" data-col="5" data-sizex="1" data-sizey="1">
       <div data-id="jira_qa_issues" data-view="JiraListCurrentSprintIssues"></div>
     </li>
-    <li data-row="2" data-col="6" data-sizex="1" data-sizey="1">
+    <li data-row="3" data-col="6" data-sizex="1" data-sizey="1">
       <div data-view="SprintProgress" data-id="sprintProgress"></div>
     </li>
 
