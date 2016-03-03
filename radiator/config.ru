@@ -17,6 +17,6 @@ map Sinatra::Application.assets_prefix do
   run Sinatra::Application.sprockets
 end
 
-set :routes_to_cycle_through, [:home, :onboard, :siterex]
+set :routes_to_cycle_through, [:home, :datacollection, :siterex]
 
 run Sinatra::Application
