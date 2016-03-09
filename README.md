@@ -6,18 +6,35 @@ Agile radiator for siterex squad
 [Install vagrant](http://www.vagrantup.com/downloads.html)<br />
 [Install virtualbox](https://www.virtualbox.org/wiki/Downloads)<br />
 
-Install vagrant plugins
+###Install vagrant plugins
 ```
 vagrant plugin install vagrant-vbguest
 vagrant plugin install vagrant-librarian-chef-nochef
 ```
 
-Install ansible
+###Install ansible (pick your flavor)
+
+MAC:
 ```
 brew install ansible
 ```
 
-Add to ~/.ssh/config
+DEBIAN (UBUNTU, etc.):
+```
+sudo apt-get install ansible
+```
+
+REDHAT (CENTOS, FEDORA, etc.) w/ `dnf`: 
+```
+sudo dnf install ansible
+```
+
+REDHAT w/ `yum`:
+```
+sudo yum install ansible
+```
+
+###Add to ~/.ssh/config
 ```
 # For vagrant virtual machines
 Host 192.168.33.* *.inside.dev *.mybuys.loc
